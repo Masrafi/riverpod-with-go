@@ -1,13 +1,11 @@
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import '../../../core/dio_provider.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
+import '../../core/dio_provider.dart';
 import 'post_model.dart';
+part 'post_provider.g.dart';
 
-final postProvider = FutureProvider<List<Post>>((ref) async {
+@riverpod
+Future<List<Post>> post(PostRef ref) async {
   final dio = ref.read(dioProvider);
-print("Post API call");
   final response = await dio.get('/posts');
-print(response.data);
-  return (response.data as List)
-      .map((e) => Post.fromJson(e))
-      .toList();
-});
+  return (response.data as List).map((e) => Post.fromJson(e)).toList();
+}
