@@ -26,9 +26,6 @@ class PostPageWatch extends ConsumerWidget {
           itemBuilder: (_, index) {
             return ListTile(
               title: Text(posts[index].title),
-              onTap: () {
-                context.push('/refresh');
-              },
             );
           },
         ),
