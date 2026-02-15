@@ -14,6 +14,7 @@ class User with _$User {
   factory User.fromJson(Map<String, dynamic> json) => _$UserFromJson(json);
 }
 
+/// Without JSON Serialization and Freezed and riverpod_generator, this model is perfect
 // class User {
 //   final int id;
 //   final String name;
