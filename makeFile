@@ -1,0 +1,8 @@
+Delete ALL generated + cache files
+flutter clean
+rm -rf .dart_tool
+rm -rf lib/**/*.freezed.dart
+rm -rf lib/**/*.g.dart
+
+Run generator (this MUST succeed)
+flutter pub run build_runner build --delete-conflicting-outputs
